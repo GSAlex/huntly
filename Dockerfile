@@ -13,7 +13,7 @@ ARG JAR_PATH=/app/server.jar
 
 COPY ${JAR_FILE} ${JAR_PATH}
 
-ENV JAVA_ARGS="-Xms128m -Xmx1024m"
+ENV JAVA_ARGS="-Xms64m -Xmx512m -XX:MaxMetaspaceSize=128m -XX:ReservedCodeCacheSize=48m -XX:+UseCompactObjectHeaders -XX:+UseZGC -XX:+ZGenerational -XX:ZUncommitDelay=60 -XX:SoftMaxHeapSize=256m -XX:+UseStringDeduplication"
 ENV VM_ARGS="-Duser.timezone=GMT+08"
 ENV APP_ARGS=""
 ENV PROFILE="default"
